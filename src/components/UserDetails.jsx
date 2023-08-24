@@ -25,7 +25,7 @@ const Wrapper = styled.section`
   .content ul {
     list-style-type: none !important;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
   }
 
   h3 {
