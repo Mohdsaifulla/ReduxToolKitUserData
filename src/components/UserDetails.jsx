@@ -1,17 +1,30 @@
 import React from "react";
 import DeleteAllUser from "./DeleteAllUser";
 import styled from "styled-components";
+import { fakeUserData } from "../Api";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/slices/useSlice";
+import DisplayUser from "./DisplayUser";
 const UserDetails = () => {
+  const dispatch = useDispatch();
+  const addNewUser = (payload) => {
+    // console.log(payload);
+    dispatch(addUser(payload));
+  };
   return (
     <Wrapper>
       <div className="content">
         <div className="admin-table">
           <div className="admin-subtitle">List of user Details</div>
-          <button className="btn add-btn">Add New Users</button>
+          <button
+            className="btn add-btn"
+            onClick={() => addNewUser(fakeUserData())}
+          >
+            Add New Users
+          </button>
         </div>
         <ul>
-          <li>hi</li>
-          <li>hi</li>
+        <DisplayUser/>
         </ul>
         <hr />
         <DeleteAllUser />
@@ -25,7 +38,7 @@ const Wrapper = styled.section`
   .content ul {
     list-style-type: none !important;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   h3 {
