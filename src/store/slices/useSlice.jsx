@@ -6,10 +6,12 @@ const useSlice = createSlice({
     addUser(state, action) {
       state.push(action.payload);
     },
-    removeUser(state, action) {},
+    removeUser(state, action) {
+      state.splice(action.payload, 1);
+    },
     deleteUsers(state, action) {},
   },
 });
 console.log(useSlice.actions);
 export default useSlice.reducer;
-export const {addUser}=useSlice.actions;
+export const { addUser, removeUser } = useSlice.actions;
