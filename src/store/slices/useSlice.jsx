@@ -10,7 +10,7 @@ const useSlice = createSlice({
       state.splice(action.payload, 1);
     },
     clearUser(state, action) {
-      return []
+      return [];
     },
   },
 });
